@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FWork - Plataforma de Empleo</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      .bg-cover {
+        background-size: cover;
+        background-position: center;
+      }
+      .overlay {
+        background-color: rgba(0, 0, 0, 0.4); /* Ajusta la opacidad según sea necesario */
+      }
+      /* Estilos del modal */
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        align-items: center;
+        justify-content: center;
+        z-index: 50;
+      }
+      .modal-content {
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 0.375rem;
+        width: 90%;
+        max-width: 500px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .modal.show {
+        display: flex;
+      }
+    </style>
+  </head>
+<body class="font-sans bg-gray-100 text-gray-900">
+  <header class="bg-transparent px-4 lg:px-6 h-16 flex items-center justify-between shadow-md fixed w-full top-0 left-0 z-20">
+    <a class="flex items-center" href="#">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-white">
+        <path d="M20 17a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3.9a2 2 0 0 1-1.69-.9l-.81-1.2a2 2 0 0 0-1.67-.9H8a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2Z"></path>
+        <path d="M2 8v11a2 2 0 0 0 2 2h14"></path>
+      </svg>
+      <span class="text-white text-lg font-semibold ml-2">FWork</span>
+    </a>
+    <nav class="relative z-10 flex items-center bg-transparent">
+      <ul class="flex list-none items-center space-x-6">
+        <li>
+          <a href="#" class="text-white font-medium py-2 px-4 rounded-lg hover:bg-white hover:text-black transition-colors duration-300">Inicio</a>
+        </li>
+        <li>
+          <a href="#trabajos" class="text-white font-medium py-2 px-4 rounded-lg hover:bg-white hover:text-black transition-colors duration-300">Trabajos</a>
+        </li>
+        <li>
+          <a href="#quienes-somos" class="text-white font-medium py-2 px-4 rounded-lg hover:bg-white hover:text-black transition-colors duration-300">Quiénes Somos</a>
+        </li>
+        <li>
+          <a href="#contacto" class="text-white font-medium py-2 px-4 rounded-lg hover:bg-white hover:text-black transition-colors duration-300">Contacto</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main class="flex-1">
+    <section class="relative bg-cover bg-center py-24 px-4 md:px-6" style="background-image: url('https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+      <div class="absolute inset-0 overlay bg-black opacity-50"></div>
+      <div class="relative z-10 flex flex-col items-center justify-center text-center text-white">
+        <h1 class="text-4xl font-bold mb-4">Encuentra tu próximo empleo con FWork</h1>
+        <p class="text-lg mb-8">Explora una amplia variedad de oportunidades laborales y da el siguiente paso en tu carrera.</p>
+        <a class="inline-flex items-center justify-center rounded-md bg-white px-8 py-3 text-sm font-medium text-blue-600 shadow-sm transition-colors hover:bg-blue-200" href="#trabajos">Ver Trabajos</a>
+      </div>
+    </section>
+  </main>
+  
+  <section id="trabajos" class="py-12 md:py-24 lg:py-32">
+    <div class="container px-4 md:px-6">
+      <div class="grid gap-6 lg:grid-cols-3 lg:gap-12">
+        <!-- Trabajo 1 -->
+        <div class="rounded-lg border bg-white text-gray-900 shadow-sm p-6">
+          <div class="flex items-center justify-between mb-4">
+            <div class="bg-gray-200 px-3 py-1 rounded-lg text-sm font-medium">Desarrollo Web</div>
+            <div class="bg-blue-600 px-3 py-1 rounded-lg text-sm font-medium text-white">$60,000 - $80,000</div>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Desarrollador Frontend</h3>
+          <p class="text-gray-600 mb-4">Empresa líder en tecnología busca desarrollador frontend con experiencia en React y TypeScript.</p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-gray-600">
+                <line x1="2" x2="5" y1="12" y2="12"></line>
+                <line x1="19" x2="22" y1="12" y2="12"></line>
+                <line x1="12" x2="12" y1="2" y2="5"></line>
+                <line x1="12" x2="12" y1="19" y2="22"></line>
+                <circle cx="12" cy="12" r="7"></circle>
+              </svg>
+              <span class="text-gray-600">Remoto</span>
+            </div>
+            <button class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-500" onclick="toggleModal()">Aplicar</button>
+          </div>
+        </div>
+        <!-- Trabajo 2 -->
+        <div class="rounded-lg border bg-white text-gray-900 shadow-sm p-6">
+          <div class="flex items-center justify-between mb-4">
+            <div class="bg-gray-200 px-3 py-1 rounded-lg text-sm font-medium">Diseño</div>
+            <div class="bg-blue-600 px-3 py-1 rounded-lg text-sm font-medium text-white">$45,000 - $65,000</div>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Diseñador UX/UI</h3>
+          <p class="text-gray-600 mb-4">Empresa de diseño busca un diseñador UX/UI con experiencia en herramientas como Figma y Adobe XD.</p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-gray-600">
+                <line x1="2" x2="5" y1="12" y2="12"></line>
+                <line x1="19" x2="22" y1="12" y2="12"></line>
+                <line x1="12" x2="12" y1="2" y2="5"></line>
+                <line x1="12" x2="12" y1="19" y2="22"></line>
+                <circle cx="12" cy="12" r="7"></circle>
+              </svg>
+              <span class="text-gray-600">Presencial</span>
+            </div>
+            <button class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-500" onclick="toggleModal()">Aplicar</button>
+          </div>
+        </div>
+        <!-- Trabajo 3 -->
+        <div class="rounded-lg border bg-white text-gray-900 shadow-sm p-6">
+          <div class="flex items-center justify-between mb-4">
+            <div class="bg-gray-200 px-3 py-1 rounded-lg text-sm font-medium">Marketing</div>
+            <div class="bg-blue-600 px-3 py-1 rounded-lg text-sm font-medium text-white">$50,000 - $70,000</div>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Especialista en Marketing Digital</h3>
+          <p class="text-gray-600 mb-4">Buscamos un especialista en marketing digital con experiencia en campañas en redes sociales y SEO.</p>
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-gray-600">
+                <line x1="2" x2="5" y1="12" y2="12"></line>
+                <line x1="19" x2="22" y1="12" y2="12"></line>
+                <line x1="12" x2="12" y1="2" y2="5"></line>
+                <line x1="12" x2="12" y1="19" y2="22"></line>
+                <circle cx="12" cy="12" r="7"></circle>
+              </svg>
+              <span class="text-gray-600">Híbrido</span>
+            </div>
+            <button class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-500" onclick="toggleModal()">Aplicar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Trabajos -->
+<section id="trabajos" class="py-12">
+  <div class="container px-4 md:px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Trabajo 1 -->
+      <div class="rounded-lg border bg-white text-gray-900 shadow-sm p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="bg-gray-200 px-3 py-1 rounded-lg text-sm font-medium">Marketing</div>
+          <div class="bg-blue-600 px-3 py-1 rounded-lg text-sm font-medium text-white">$50,000 - $70,000</div>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Especialista en Marketing Digital</h3>
+        <p class="text-gray-600 mb-4">Buscamos un especialista en marketing digital con experiencia en campañas en redes sociales y SEO.</p>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-gray-600">
+              <line x1="2" x2="5" y1="12" y2="12"></line>
+              <line x1="19" x2="22" y1="12" y2="12"></line>
+              <line x1="12" x2="12" y1="2" y2="5"></line>
+              <line x1="12" x2="12" y1="19" y2="22"></line>
+              <circle cx="12" cy="12" r="7"></circle>
+            </svg>
+            <span class="text-gray-600">Híbrido</span>
+          </div>
+          <button class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-500" onclick="toggleModal()">Aplicar</button>
+        </div>
+      </div>
+      <!-- Trabajo 2 -->
+      <div class="rounded-lg border bg-white text-gray-900 shadow-sm p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="bg-gray-200 px-3 py-1 rounded-lg text-sm font-medium">Diseño</div>
+          <div class="bg-blue-600 px-3 py-1 rounded-lg text-sm font-medium text-white">$60,000 - $80,000</div>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Diseñador UX/UI</h3>
+        <p class="text-gray-600 mb-4">Estamos buscando un diseñador UX/UI para mejorar la experiencia de nuestros usuarios en la web y aplicaciones móviles.</p>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-gray-600">
+              <line x1="2" x2="5" y1="12" y2="12"></line>
+              <line x1="19" x2="22" y1="12" y2="12"></line>
+              <line x1="12" x2="12" y1="2" y2="5"></line>
+              <line x1="12" x2="12" y1="19" y2="22"></line>
+              <circle cx="12" cy="12" r="7"></circle>
+            </svg>
+            <span class="text-gray-600">Remoto</span>
+          </div>
+          <button class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-500" onclick="toggleModal()">Aplicar</button>
+        </div>
+      </div>
+      <!-- Trabajo 3 -->
+      <div class="rounded-lg border bg-white text-gray-900 shadow-sm p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="bg-gray-200 px-3 py-1 rounded-lg text-sm font-medium">Desarrollo</div>
+          <div class="bg-blue-600 px-3 py-1 rounded-lg text-sm font-medium text-white">$70,000 - $90,000</div>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Desarrollador Backend</h3>
+        <p class="text-gray-600 mb-4">Buscamos un desarrollador backend para construir y mantener la infraestructura de nuestra plataforma web.</p>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-gray-600">
+              <line x1="2" x2="5" y1="12" y2="12"></line>
+              <line x1="19" x2="22" y1="12" y2="12"></line>
+              <line x1="12" x2="12" y1="2" y2="5"></line>
+              <line x1="12" x2="12" y1="19" y2="22"></line>
+              <circle cx="12" cy="12" r="7"></circle>
+            </svg>
+            <span class="text-gray-600">Presencial</span>
+          </div>
+          <button class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-500" onclick="toggleModal()">Aplicar</button>
+        </div>
+      </div>
+      <!-- Trabajo 4 -->
+      <div class="rounded-lg border bg-white text-gray-900 shadow-sm p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="bg-gray-200 px-3 py-1 rounded-lg text-sm font-medium">Finanzas</div>
+          <div class="bg-blue-600 px-3 py-1 rounded-lg text-sm font-medium text-white">$55,000 - $75,000</div>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Analista Financiero</h3>
+        <p class="text-gray-600 mb-4">Estamos buscando un analista financiero para gestionar y analizar los datos financieros de la empresa.</p>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-gray-600">
+              <line x1="2" x2="5" y1="12" y2="12"></line>
+              <line x1="19" x2="22" y1="12" y2="12"></line>
+              <line x1="12" x2="12" y1="2" y2="5"></line>
+              <line x1="12" x2="12" y1="19" y2="22"></line>
+              <circle cx="12" cy="12" r="7"></circle>
+            </svg>
+            <span class="text-gray-600">Híbrido</span>
+          </div>
+          <button class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-500" onclick="toggleModal()">Aplicar</button>
+        </div>
+      </div>
+      <!-- Trabajo 5 -->
+      <div class="rounded-lg border bg-white text-gray-900 shadow-sm p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="bg-gray-200 px-3 py-1 rounded-lg text-sm font-medium">Recursos Humanos</div>
+          <div class="bg-blue-600 px-3 py-1 rounded-lg text-sm font-medium text-white">$45,000 - $65,000</div>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Especialista en Recursos Humanos</h3>
+        <p class="text-gray-600 mb-4">Se busca un especialista en recursos humanos para gestionar procesos de contratación y bienestar de los empleados.</p>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-gray-600">
+              <line x1="2" x2="5" y1="12" y2="12"></line>
+              <line x1="19" x2="22" y1="12" y2="12"></line>
+              <line x1="12" x2="12" y1="2" y2="5"></line>
+              <line x1="12" x2="12" y1="19" y2="22"></line>
+              <circle cx="12" cy="12" r="7"></circle>
+            </svg>
+            <span class="text-gray-600">Remoto</span>
+          </div>
+          <button class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-500" onclick="toggleModal()">Aplicar</button>
+        </div>
+      </div>
+      <!-- Trabajo 6 -->
+      <div class="rounded-lg border bg-white text-gray-900 shadow-sm p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="bg-gray-200 px-3 py-1 rounded-lg text-sm font-medium">Desarrollo</div>
+          <div class="bg-blue-600 px-3 py-1 rounded-lg text-sm font-medium text-white">$80,000 - $100,000</div>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Desarrollador Frontend</h3>
+        <p class="text-gray-600 mb-4">Buscamos un desarrollador frontend con experiencia en HTML, CSS, y JavaScript para construir interfaces atractivas y funcionales.</p>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-gray-600">
+              <line x1="2" x2="5" y1="12" y2="12"></line>
+              <line x1="19" x2="22" y1="12" y2="12"></line>
+              <line x1="12" x2="12" y1="2" y2="5"></line>
+              <line x1="12" x2="12" y1="19" y2="22"></line>
+              <circle cx="12" cy="12" r="7"></circle>
+            </svg>
+            <span class="text-gray-600">Presencial</span>
+          </div>
+          <button class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-500" onclick="toggleModal()">Aplicar</button>
+        </div>
+      </div>
+      <!-- Trabajo 7 -->
+      <div class="rounded-lg border bg-white text-gray-900 shadow-sm p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="bg-gray-200 px-3 py-1 rounded-lg text-sm font-medium">Ventas</div>
+          <div class="bg-blue-600 px-3 py-1 rounded-lg text-sm font-medium text-white">$40,000 - $60,000</div>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Ejecutivo de Ventas</h3>
+        <p class="text-gray-600 mb-4">Estamos en búsqueda de un ejecutivo de ventas para desarrollar y mantener relaciones con nuestros clientes y alcanzar metas de ventas.</p>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-gray-600">
+              <line x1="2" x2="5" y1="12" y2="12"></line>
+              <line x1="19" x2="22" y1="12" y2="12"></line>
+              <line x1="12" x2="12" y1="2" y2="5"></line>
+              <line x1="12" x2="12" y1="19" y2="22"></line>
+              <circle cx="12" cy="12" r="7"></circle>
+            </svg>
+            <span class="text-gray-600">Híbrido</span>
+          </div>
+          <button class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-500" onclick="toggleModal()">Aplicar</button>
+        </div>
+      </div>
+      <!-- Trabajo 8 -->
+      <div class="rounded-lg border bg-white text-gray-900 shadow-sm p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="bg-gray-200 px-3 py-1 rounded-lg text-sm font-medium">Legal</div>
+          <div class="bg-blue-600 px-3 py-1 rounded-lg text-sm font-medium text-white">$65,000 - $85,000</div>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Asesor Legal</h3>
+        <p class="text-gray-600 mb-4">Se busca un asesor legal para proporcionar asesoría jurídica y manejar asuntos legales de la empresa.</p>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-gray-600">
+              <line x1="2" x2="5" y1="12" y2="12"></line>
+              <line x1="19" x2="22" y1="12" y2="12"></line>
+              <line x1="12" x2="12" y1="2" y2="5"></line>
+              <line x1="12" x2="12" y1="19" y2="22"></line>
+              <circle cx="12" cy="12" r="7"></circle>
+            </svg>
+            <span class="text-gray-600">Remoto</span>
+          </div>
+          <button class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-500" onclick="toggleModal()">Aplicar</button>
+        </div>
+      </div>
+      <!-- Trabajo 9 -->
+      <div class="rounded-lg border bg-white text-gray-900 shadow-sm p-6">
+        <div class="flex items-center justify-between mb-4">
+          <div class="bg-gray-200 px-3 py-1 rounded-lg text-sm font-medium">IT</div>
+          <div class="bg-blue-600 px-3 py-1 rounded-lg text-sm font-medium text-white">$75,000 - $95,000</div>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Ingeniero de Sistemas</h3>
+        <p class="text-gray-600 mb-4">Buscamos un ingeniero de sistemas para diseñar, implementar y mantener sistemas informáticos eficientes y seguros.</p>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-gray-600">
+              <line x1="2" x2="5" y1="12" y2="12"></line>
+              <line x1="19" x2="22" y1="12" y2="12"></line>
+              <line x1="12" x2="12" y1="2" y2="5"></line>
+              <line x1="12" x2="12" y1="19" y2="22"></line>
+              <circle cx="12" cy="12" r="7"></circle>
+            </svg>
+            <span class="text-gray-600">Presencial</span>
+          </div>
+          <button class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-500" onclick="toggleModal()">Aplicar</button>
+        </div>
+      </div>
+
+  </section>
+  
+ <!-- Modal -->
+ <div id="modal" class="modal">
+  <div class="modal-content">
+    <h2 class="text-2xl font-bold mb-4">Aplicar para el Trabajo</h2>
+    <p class="mb-4">Complete el formulario para postularse al trabajo.</p>
+    <form id="apply-form">
+      <div class="mb-4">
+        <label for="name" class="block text-gray-700">Nombre</label>
+        <input type="text" id="name" name="name" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" required>
+      </div>
+      <div class="mb-4">
+        <label for="email" class="block text-gray-700">Correo Electrónico</label>
+        <input type="email" id="email" name="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" required>
+      </div>
+      <div class="mb-4">
+        <label for="resume" class="block text-gray-700">Adjuntar CV</label>
+        <input type="file" id="resume" name="resume" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" required>
+      </div>
+      <button type="submit" class="inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-500">Enviar</button>
+      <button type="button" class="inline-flex items-center justify-center rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-red-500 ml-4" onclick="toggleModal()">Cerrar</button>
+    </form>
+  </div>
+</div>
+      
+      <section id="quienes-somos" class="py-12 md:py-24 lg:py-32 bg-gray-200">
+        <div class="container px-4 md:px-6">
+          <h2 class="text-3xl font-bold mb-4">Quiénes Somos</h2>
+          <p class="text-gray-700 mb-8">En FWork, somos un equipo dedicado a conectar a los mejores talentos con las mejores oportunidades. Nuestro objetivo es facilitar el proceso de búsqueda de empleo y ayudar a nuestros usuarios a encontrar el trabajo de sus sueños.</p>
+          <div class="grid gap-6 lg:grid-cols-3">
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <h3 class="text-xl font-bold mb-2">Nuestra Misión</h3>
+              <p class="text-gray-600">Ofrecer una plataforma confiable y eficiente para la búsqueda y oferta de empleo.</p>
+            </div>
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <h3 class="text-xl font-bold mb-2">Nuestro Equipo</h3>
+              <p class="text-gray-600">Contamos con un equipo de expertos en reclutamiento y tecnología para garantizar la mejor experiencia.</p>
+            </div>
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <h3 class="text-xl font-bold mb-2">Nuestra Visión</h3>
+              <p class="text-gray-600">Ser la plataforma líder en la búsqueda de empleo y contribuir al éxito profesional de nuestros usuarios.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contacto" class="py-12 md:py-24 lg:py-32">
+        <div class="container px-4 md:px-6">
+          <h2 class="text-3xl font-bold mb-4">Contacto</h2>
+          <form action="#" method="POST" class="bg-white p-6 rounded-lg shadow-sm">
+            <div class="grid gap-6 md:grid-cols-2">
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
+                <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 sm:text-sm" required>
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
+                <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 sm:text-sm" required>
+              </div>
+            </div>
+            <div class="mt-6">
+              <label for="message" class="block text-sm font-medium text-gray-700">Mensaje</label>
+              <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 sm:text-sm" required></textarea>
+            </div>
+            <button type="submit" class="mt-6 inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-blue-500">Enviar</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-blue-600 text-white py-4">
+      <div class="container px-4 md:px-6 text-center">
+        <p>&copy; 2024 FWork. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    function toggleModal() {
+      const modal = document.getElementById('modal');
+      modal.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
